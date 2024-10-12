@@ -186,10 +186,10 @@ Satoshi Nakamoto, the inventor of Bitcoin, used this technique himself when he m
 
 ---
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/24354952-ca50-4413-ac9d-d172cb6141a1)
 
 
-### Figure 5: On the right, the Genesis Block of Bitcoin includes the headlines of the newspaper on the left, which is Satoshi Nakamoto’s “proof-of-absence” for the Bitcoin blockchain.
+### Figure 3: On the right, the Genesis Block of Bitcoin includes the headlines of the newspaper on the left, which is Satoshi Nakamoto’s “proof-of-absence” for the Bitcoin blockchain.
 
 ---
 
