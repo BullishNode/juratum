@@ -41,7 +41,7 @@ A jurat serves as verifiable proof that the notarization process occurred and de
 
 Using public-key infrastructures built on cryptographic algorithms allowing for digital signatures, public notaries are not needed to validate the authenticity of a digital signature or that the message was not modified since the digital signature was applied. Using proof of absence and proof of existence, the notary is no longer required to attest at which time a signature was made or prove the time at which a document existed.
 
-[^2]: Source reference missing
+[^2] https://www.law.cornell.edu/wex/jurat
 
 ---
 
