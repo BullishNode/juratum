@@ -27,6 +27,9 @@ It proves the time frame during which the owner of the private key had knowledge
 
 ---
 
+![image](https://github.com/user-attachments/assets/4c69c679-a600-4623-939d-b11daf48a088)
+
+
 ### Figure 1: Proof-of-absence and proof-of-existence of a digital signature revealing the possible time-frame during which the signature can be proven to have been created
 
 ---
@@ -52,6 +55,9 @@ The Bitcoin Jurat protocol specifies four simple proofs:
 - We prove that this Bitcoin block hash really existed at a certain point in time by using a Bitcoin core full node (step 1)
 
 ---
+
+![image](https://github.com/user-attachments/assets/6bf5d83d-2ec4-480b-8da9-61af56f3f33d)
+
 
 ### Figure 2: Four-step process to create the proof-of-absence and proof-of-existence of a digital signature using the Block 999’s hash and timestamping in Block 1001
 
@@ -140,11 +146,6 @@ The Bitcoin blockchain is considered a single source of truth because all networ
 The blockchain is a linear sequence of files called blocks which are produced by the Bitcoin consensus and mining processes at a mathematically fixed average frequency (10 minutes). In each block, miners include the time at which they broadcast their new block to the network, expecting users to consider it valid and add it to their own copy of the blockchain.
 
 
-
-### Figure 3: A Merkle Tree Structure Like the One Used by OpenTimestamps to Aggregate Data and Used in Bitcoin to Aggregate Transactions Into Blocks. Taken from Andreas Antonopoulos’ “Mastering Bitcoin” Volume 1.
-
-### Figure 4: A visual representation of the Bitcoin blockchain. Above, we see the component of the block headers. Below, we see transactions being constructed into a merkle tree whose root will be in the block header, from which will be generated the block hash. We can see, in grey, our timestamp included in Block 1000. The existence of the timestamps affects all other elements (in grey) in the chain of operations, and consequently impacts future block hashes.
-
 ---
 
 Transactions are thus vessels in which data is "included" in the blockchain. Because the system is completely decentralized and trustless, access to the ledger for both writing and reading is censorship-resistant. Anybody can include data in a block, and anybody can verify that the data is in this block. Trustless timestamping protocols, such as the OpenTimestamps protocol, are used to standardize the data aggregation and compiling process, the attestation process (the transaction creation and broadcast) as well as the verification process.
@@ -185,87 +186,8 @@ Satoshi Nakamoto, the inventor of Bitcoin, used this technique himself when he m
 
 ---
 
-### Figure 5: On the right, the Genesis Block of Bitcoin includes the headlines of the newspaper on the left, which is Satoshi Nakamoto’s “proof-of-absence” for the Bitcoin blockchain.
+![Uploading image.png…]()
 
----
-
-The reason Satoshi Nakamoto included a newspaper headline in a Bitcoin block is of course to prove that he did not mine this block prior to January 3rd, 2009. Indeed, Nakamoto could have mined blocks of the Bitcoin blockchain long before this time, accumulating proof-of-work without giving the opportunity to others to engage in the process, which is often called a premine. All of the Bitcoin transactions are part of a shared history which provably starts, at the earliest, on January 3rd, 2009.
-
-There are two major problems with the use of newspaper headlines, which highlight why our proposed method of using bitcoin block hashes is far superior. Firstly, newspaper headlines are by definition trusted third parties, and they are subject to collusion and manipulation. The process of generating newspaper headlines is not auditable, and is certainly not trustless.
-
-Did Satoshi Nakamoto bribe the editor of The Times in 2009, to publish at an agreed-upon time in the future the headline “Chancellor on brink of second bailout for banks” in order to gain a secret unfair advantage over future users of the Bitcoin protocol? This is extremely unlikely, but it is certainly possible.
-
-Second, temporal markers also need to be publicly and independently auditable. They should be immutable, tamper-resistant, and distributed to remain auditable for extremely long periods of time. Online news headlines, for example, are not immutable nor tamper-resistant. If The Times newspaper had been only digital, it would have been trivial for them to retroactively modify the headline.
-
-To some degree, physical newspapers can be widely distributed, but not for long periods of time, as inevitably the evidence physically disintegrates, gets destroyed, and disappears.
-
-For example, it is practically impossible today to find a physical copy of the famous January 3rd The Times paper. If The Times' website goes down without a proper trusted archive (and assuming it is not corrupted) then physical papers would be the only method for future generations to verify the proof-of-absence of Bitcoin’s genesis block. Of course, there are methods to mitigate this, such as distributed archives and timestamping using the OpenTimestamps protocol: but they inevitably also use the Bitcoin blockchain to achieve the level of security and certainty, so it makes sense to simply use the Bitcoin block headers directly.
-
----
-
-## Immutability of Bitcoin
-
-Amongst the many properties and features of Bitcoin, the immutability of its transaction ledger, the blockchain, is often cited as being one of the greatest achievements. If Bitcoin transactions are notoriously irreversible, it is because any data included in the Bitcoin blockchain will maintain its integrity over time. The Bitcoin blockchain is both tamper-evident and tamper-resistant: any modification to the ledger would be detected (tamper evidence), and it is nearly impossible in practice to retroactively modify the blockchain ledger of Bitcoin beyond a certain amount of time (tamper resistance).
-
-Immutability is a concept that refers to something that is very difficult to change. Of course, nothing in the universe is truly immutable. Immutability is better conceived as a scale, where the things that are most difficult to change are the most immutable. Bitcoin, we argue, is the most immutable record ever known precisely because of the insurmountable difficulty of modifying it.
-
-In order to retroactively modify the Bitcoin blockchain to remove or modify a bitcoin block, attackers would need to reveal a valid blockchain with a longer proof-of-work than the one containing the honest bitcoin transactions and blocks, starting from their maliciously modified block that they’d previously been secretly mining. This effectively allows them to double-spend a victim or retroactively remove transactions from the current longest valid proof-of-work chain accepted by Bitcoin network nodes and, consequently, remove timestamps from the Bitcoin blockchain.
-
-The cost of doing so is immense because the likelihood of pulling off this attack is extremely low, and over time the opportunity and sunk costs get higher as the likelihood of attack success decreases. As demonstrated in Satoshi Nakamoto’s “Bitcoin: a Peer-to-Peer Electronic Cash System,” the probability of an attacker pulling off an attack decreases exponentially after each block.
-
-Nakamoto continues:
-
-> “The probability drops exponentially as the number of blocks the attacker has to catch up with increases. With the odds against him, if he doesn't make a lucky lunge forward early on, his chances become vanishingly small as he falls further behind.”
-
----
-
-## Conclusion
-
-We have demonstrated how the Bitcoin blockchain can be used as a notary and a timekeeping device for cryptographic proofs. We have shown that it is possible to prove that a digital signature did not exist prior to a certain point in time using a process called “proof-of-absence” which leverages Bitcoin block headers and digital signatures. We have also shown that timestamping this digital signature using the OpenTimestamp protocol allows us to prove that this digital signature existed starting from a certain point in time. Consequently, we are able to prove the possible time frame during which the digital signature was created.
-
----
-
-### Figure 4: A visual representation of the Bitcoin blockchain. Above, we see the component of the block headers. Below, we see transactions being constructed into a merkle tree whose root will be in the block header, from which will be generated the block hash. We can see, in grey, our timestamp included in Block 1000. The existence of the timestamps affects all other elements (in grey) in the chain of operations, and consequently impacts future block hashes.
-
----
-
-Transactions are thus vessels in which data is "included" in the blockchain. Because the system is completely decentralized and trustless, access to the ledger for both writing and reading is censorship-resistant. Anybody can include data in a block, and anybody can verify that the data is in this block. Trustless timestamping protocols, such as the OpenTimestamps protocol, are used to standardize the data aggregation and compiling process, the attestation process (the transaction creation and broadcast) as well as the verification process.
-
-In the words of Peter Todd, creator of OpenTimestamps:
-
-> “A timestamp proves that a message existed prior to some point in time; timestamps are occasionally referred to as 'proofs-of-existence.' Being able to prove that data existed prior to a point in time is surprisingly useful.”
-
----
-
-A timestamping protocol is a set of policies and procedures which determine the steps necessary for users to generate and validate a certain type of timestamp. In the blockchain ecosystem, timestamping protocols usually have two main components: a method of formatting data and publishing this data onto a blockchain.
-
-The auditability of Bitcoin timestamps refers to the fact that because the Bitcoin open-source software is able to download the blockchain from its peers and independently validate its content, it is trivial to look up the Bitcoin blockchain to see if a particular hash is included in a Bitcoin transaction at a certain point in time. No permission is required to perform this audit. The blockchain itself is also widely distributed and available.
-
-In addition, because of the applied cryptography techniques used in the OpenTimestamps protocol, including Merkle Trees, it is possible to independently verify that a particular piece of data was included in the blockchain in a highly scalable and private way.
-
-Bitcoin has been used as an immutable timestamping platform for many years. An early prominent implementation is Proof-of-Existence (www.proofofexistence.org) by Manuel Araoz. It consists of embedding the SHA256 digest of the data to be timestamped into a Bitcoin transaction by using the OP_RETURN script. Once the transaction is confirmed in the blockchain, the data in the OP_RETURN script is included in the blockchain.
-
-This method is not scalable, because the space inside the blockchain is limited and the cost of timestamping data is accordingly very high. There are, however, more modern timestamping protocols such as OpenTimestamps which allow for much more extensibility and scalability.
-
-The OpenTimestamps protocol specifies how the data is formatted and aggregated prior to being included in a Bitcoin transaction. It is, in our opinion, the best Bitcoin timestamping protocol and has an active community of contributors.
-
----
-
-### Proof-of-Absence
-
-Our proof-of-absence process requires finding a temporal marker and cryptographically associating it with a message or piece of data using a digital signature process. Digital signatures are what allow us to cryptographically bind the proof-of-absence time-marker to a message or data that is later timestamped in the Bitcoin blockchain. The digital signature is not just a step in our process: it is the objective of the process.
-
-First, we need a piece of data to act as a temporal marker with two specific properties: it cannot be guessed in advance, and it is publicly verifiable.
-
-Bitcoin block hashes are perfect because they are both impossible to guess in advance but also trustlessly verifiable using open-source software. The Bitcoin blockchain is immutable and distributed, which makes it a reliable source.
-
-Traditionally, a common technique has been to use newspaper headlines, such as in "proof-of-life" evidence generation, where hostages are photographed or filmed holding a recent copy of a newspaper to prove that, at least until the day the newspaper was printed, they were alive.
-
-Satoshi Nakamoto, the inventor of Bitcoin, used this technique himself when he mined the first block of the Bitcoin blockchain, referred to as the Genesis Block. According to the Bitcoin protocol, a miner can include arbitrary text in a block he is creating which, if included in the blockchain, will be permanently recorded for all the world to witness. In the case of the Genesis Block, Nakamoto included the message:
-
-> "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks."
-
----
 
 ### Figure 5: On the right, the Genesis Block of Bitcoin includes the headlines of the newspaper on the left, which is Satoshi Nakamoto’s “proof-of-absence” for the Bitcoin blockchain.
 
